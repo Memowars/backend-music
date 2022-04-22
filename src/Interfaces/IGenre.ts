@@ -1,18 +1,7 @@
-export interface Genre {
+export interface IGenre {
   _id: string;
   description: string;
 }
 
-export interface getGenreByIdDTO {
-  _id: string;
-}
-export interface CreateGenreDTO {
-  description: string;
-}
-export interface UpdateGenreDTO {
-  _id: string;
-  description: string;
-}
-export interface deleteGenreDTO {
-  _id: string;
-}
+export type CreateGenre = Omit<IGenre, '_id'>;
+export type UpdateGenre = Partial<CreateGenre>;

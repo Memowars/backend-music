@@ -1,7 +1,7 @@
 import { model, Schema } from 'mongoose';
-import { Album } from '../Interfaces/IAlbum';
+import { IAlbum } from '../Interfaces/IAlbum';
 
-const schema = new Schema<Album>({
+const schema = new Schema<IAlbum>({
   name: { type: String, required: true },
   singer: { type: Schema.Types.ObjectId, ref: 'singers', required: true },
   releaseDate: { type: Date, required: true, default: new Date() },
@@ -12,4 +12,4 @@ const schema = new Schema<Album>({
   image: { type: String, required: true },
 });
 
-export const AlbumModel = model<Album>('albums', schema);
+export const AlbumModel = model<IAlbum>('albums', schema);

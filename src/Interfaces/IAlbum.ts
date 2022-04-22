@@ -1,15 +1,18 @@
-import { Genre } from './IGenre';
-import { Singer } from './ISinger';
-import { Song } from './ISongs';
+import { IGenre } from './IGenre';
+import { ISinger } from './ISinger';
+import { ISong } from './ISongs';
 
-export interface Album {
+export interface IAlbum {
   _id: string;
   name: string;
-  singer: Singer;
+  singer: ISinger;
   releaseDate: Date;
-  songs: Song[];
+  songs: ISong[];
   price: number;
-  genre: Genre;
+  genre: IGenre;
   stock: number;
   image: string;
 }
+
+export type CreateAlbum = Omit<IAlbum, '_id'>;
+export type UpdateAlbum = Partial<CreateAlbum>;

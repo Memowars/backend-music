@@ -1,11 +1,14 @@
-import { Album } from './IAlbum';
-import { Song } from './ISongs';
+import { IAlbum } from './IAlbum';
 
-export interface Singer {
+export interface ISinger {
   _id: string;
+  stageName: string;
   name: string;
   lastName: string;
   nationality: string;
-  albums?: Album[];
-  songs?: Song[];
+  albums?: IAlbum[];
+  image: string;
 }
+
+export type CreateSinger = Omit<ISinger, '_id'>;
+export type UpdateSinger = Partial<ISinger>;

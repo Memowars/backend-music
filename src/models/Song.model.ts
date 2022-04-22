@@ -1,7 +1,7 @@
 import { Schema, model } from 'mongoose';
-import { Song } from '../Interfaces/ISongs';
+import { ISong } from '../Interfaces/ISongs';
 
-const schema = new Schema<Song>({
+const schema = new Schema<ISong>({
   name: { type: String, required: true },
   singer: { type: Schema.Types.ObjectId, ref: 'singers', required: true },
   releaseDate: { type: Date, required: true, default: new Date() },
@@ -12,4 +12,4 @@ const schema = new Schema<Song>({
   price: { type: Number, optional: true },
 });
 
-export const SongModel = model<Song>('songs', schema);
+export const SongModel = model<ISong>('songs', schema);
