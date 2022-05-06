@@ -6,10 +6,11 @@ import { GenreRoutes } from './routes/Genres.routes';
 import { AlbumRoute } from './routes/Albums.routes';
 import { SingerRoute } from './routes/Singers.routes';
 import { AuthRoute } from './routes/Auth.routes';
-
+import cors from 'cors';
 const app = express();
 app.use(express.json());
 app.use(morgan('dev'));
+app.use(cors);
 
 UserRoutes(app);
 GenreRoutes(app);
