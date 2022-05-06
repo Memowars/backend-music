@@ -9,6 +9,7 @@ export interface IUser {
 export type CreateUser = Omit<IUser, '_id'>;
 export type UpdateUser = Partial<CreateUser>;
 export type LoginUser = Omit<IUser, '_id' | 'userName' | 'type'>;
+export type TokenUser = Omit<IUser, 'password' | 'userName' | 'type'>;
 
 export enum ERoles {
   ADMIN = 'Admin',

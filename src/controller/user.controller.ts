@@ -1,4 +1,4 @@
-import { generarJWT } from '../helpers/jsw';
+import { generarJWT } from '../helpers/generarJWT';
 import { CreateUser, UpdateUser } from '../Interfaces/IUser';
 import { UserModel } from '../models/Users.model';
 
@@ -6,9 +6,9 @@ const bcrypt = require('bcryptjs');
 //CRUD
 export const createUser = async (data: CreateUser) => {
   const salt = bcrypt.genSaltSync();
-  const token = await generarJWT(data.userName, data.email);
   data.password = bcrypt.hashSync(data.password, salt);
   const user = await UserModel.create(data);
+  const token = await generarJWT({ _id: user._id, email: user.email });
   return { user, token };
 };
 export const getListUsers = async () => {

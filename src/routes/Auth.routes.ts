@@ -1,6 +1,6 @@
 import { Application, Router, Request, Response } from 'express';
-import { loginUser } from '../controller/auth.controller';
-import { validarJWT } from '../middlewares/validarJWT';
+import { loginUser, revalidarToken } from '../controller/auth.controller';
+import { ValidarJWT } from '../middlewares/validarJWT';
 
 export const AuthRoute = (app: Application) => {
   const router = Router();
@@ -18,9 +18,5 @@ export const AuthRoute = (app: Application) => {
     }
   });
 
-  router.get('/renew', async (req: Request, res: Response) => {
-    const token = req.header('x-token');
-    validarJWT(token);
-    res.status(200).json({ ok: true, msg: 'renew', token });
-  });
+  router.get('/renew', ValidarJWT, revalidarToken);
 };
