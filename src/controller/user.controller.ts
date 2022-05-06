@@ -7,9 +7,10 @@ const bcrypt = require('bcryptjs');
 export const createUser = async (data: CreateUser) => {
   const salt = bcrypt.genSaltSync();
   data.password = bcrypt.hashSync(data.password, salt);
-  const user = await UserModel.create(data);
-  const token = await generarJWT({ _id: user._id, email: user.email });
-  return { user, token };
+  const datos = await UserModel.create(data);
+  const token = await generarJWT({ _id: datos._id, email: datos.email });
+
+  return { datos, token };
 };
 export const getListUsers = async () => {
   const AllUsers = await UserModel.find();
