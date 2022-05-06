@@ -13,8 +13,18 @@ export const UserRoutes = (app: Application) => {
   app.use('/users', router);
 
   router.post('/createUser', async (req: Request, res: Response) => {
-    const user = await createUser(req.body);
-    res.status(201).json(user);
+    const { email } = req.body;
+    const existingEmail = await getUserByEmail(email);
+    try {
+      if (existingEmail) {
+        return res.status(400).json('El correo ya esta registrado');
+      }
+
+      const user = await createUser(req.body);
+      res.status(201).json(user);
+    } catch (error) {
+      console.error(error);
+    }
   });
 
   router.get('/getUsers/', async (req: Request, res: Response) => {
@@ -30,8 +40,8 @@ export const UserRoutes = (app: Application) => {
 
   router.get('/getUsersByEmail', async (req: Request, res: Response) => {
     const { email } = req.body;
-    const UserByEmail = await getUserByEmail(email);
-    res.status(200).json(UserByEmail);
+    const getUsersByEmail = await getUserByEmail(email);
+    res.status(200).json(getUsersByEmail);
   });
 
   router.patch('/updateUser/:id', async (req: Request, res: Response) => {
@@ -42,7 +52,7 @@ export const UserRoutes = (app: Application) => {
 
   router.delete('/deleteUser/:id', async (req: Request, res: Response) => {
     const { id } = req.params;
-    const deletedUser = await deleteUser(id);
-    res.status(200).json(deletedUser);
+    const user = await deleteUser(id);
+    res.status(200).json(user);
   });
 };

@@ -7,7 +7,7 @@ import {
   deleteGenre,
 } from '../controller/genre.controller';
 
-export const SingerRoute = (app: Application) => {
+export const GenreRoutes = (app: Application) => {
   const router = Router();
   app.use('/genres', router);
 

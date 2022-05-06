@@ -9,7 +9,7 @@ import {
 
 export const SingerRoute = (app: Application) => {
   const router = Router();
-  app.use('/singer', router);
+  app.use('/singers', router);
 
   router.post('/createSinger', async (req: Request, res: Response) => {
     const singer = await createSinger(req.body);

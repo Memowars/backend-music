@@ -8,22 +8,7 @@ export interface IUser {
 
 export type CreateUser = Omit<IUser, '_id'>;
 export type UpdateUser = Partial<CreateUser>;
-
-export interface LoginDTO {
-  userName?: string;
-  email?: string;
-  password: string;
-}
-
-export interface LoginEmailDTO {
-  email: string;
-  password: string;
-}
-
-export interface LoginUsernameDTO {
-  userName: string;
-  password: string;
-}
+export type LoginUser = Omit<IUser, '_id' | 'userName' | 'type'>;
 
 export enum ERoles {
   ADMIN = 'Admin',

@@ -5,11 +5,11 @@ import { ISong } from './ISongs';
 export interface IAlbum {
   _id: string;
   name: string;
-  singer: ISinger;
+  singerID: ISinger;
   releaseDate: Date;
-  songs: ISong[];
+  songsID: ISong[];
   price: number;
-  genre: IGenre;
+  genreID: IGenre;
   stock: number;
   image: string;
 }

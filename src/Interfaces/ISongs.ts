@@ -4,9 +4,9 @@ import { ISinger } from './ISinger';
 export interface ISong {
   _id: string;
   name: string;
-  singer: ISinger;
+  singerID?: ISinger;
   releaseDate: Date;
-  album?: IAlbum;
+  albumID?: IAlbum;
   duration?: number;
   completeFile: string;
   previewFile: string;

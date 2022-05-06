@@ -1,13 +1,15 @@
 import { CreateSong, UpdateSong } from '../Interfaces/ISongs';
 import { SongModel } from '../models/Song.model';
-//CRUD
 
+//CRUD
 export const createSong = async (data: CreateSong) => {
   const song = await SongModel.create(data);
   return song;
 };
 export const getListSongs = async () => {
-  const getAllSong = await SongModel.find();
+  const getAllSong = await SongModel.find()
+    .populate('singerID')
+    .populate('albumID');
   return getAllSong;
 };
 export const getSongById = async (id: string) => {
