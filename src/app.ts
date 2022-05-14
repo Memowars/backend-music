@@ -10,7 +10,11 @@ import cors from 'cors';
 const app = express();
 app.use(express.json());
 app.use(morgan('dev'));
-// app.use(cors);
+app.use(
+  cors({
+    origin: 'http://localhost:3001',
+  })
+);
 
 UserRoutes(app);
 GenreRoutes(app);
