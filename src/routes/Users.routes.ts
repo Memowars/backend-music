@@ -62,13 +62,13 @@ export const UserRoutes = (app: Application) => {
     res.status(200).json(getAllUsers);
   });
 
-  router.get('/getUsersById/:id', async (req: Request, res: Response) => {
+  router.get('/getUserById/:id', async (req: Request, res: Response) => {
     const { id } = req.params;
     const getUsersById = await getUserById(id);
     res.status(200).json(getUsersById);
   });
 
-  router.get('/getUsersByEmail', async (req: Request, res: Response) => {
+  router.get('/getUserByEmail', async (req: Request, res: Response) => {
     const { email } = req.body;
     const getUsersByEmail = await getUserByEmail(email);
     res.status(200).json(getUsersByEmail);
@@ -83,6 +83,6 @@ export const UserRoutes = (app: Application) => {
   router.delete('/deleteUser/:id', async (req: Request, res: Response) => {
     const { id } = req.params;
     const user = await deleteUser(id);
-    res.status(200).json(user);
+    res.status(200).json({ delted: true });
   });
 };

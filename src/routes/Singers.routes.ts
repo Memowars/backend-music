@@ -23,8 +23,12 @@ export const SingerRoute = (app: Application) => {
 
   router.get('/getSingerById/:id', async (req: Request, res: Response) => {
     const { id } = req.params;
-    const singerById = getSingerById(id);
-    res.status(200).json(singerById);
+    try {
+      const singerById = await getSingerById(id);
+      res.status(200).json(singerById);
+    } catch (error) {
+      console.error(error);
+    }
   });
 
   router.patch('/updateSinger/:id', (req: Request, res: Response) => {

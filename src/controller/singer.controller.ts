@@ -11,7 +11,7 @@ export const getListSingers = async () => {
   return getAllSingers;
 };
 export const getSingerById = async (id: string) => {
-  const singerById = await SingerModel.findById({ id });
+  const singerById = await SingerModel.findById(id);
   return singerById;
 };
 export const updateSinger = async (id: string, data: UpdateSinger) => {

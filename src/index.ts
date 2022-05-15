@@ -3,7 +3,6 @@ const { dbConnection } = require('./database/config');
 
 dbConnection();
 
-const port = 3000;
-app.listen(port, () => {
-  return console.log(`server is listening on ${port}`);
+app.listen(process.env.PORT, () => {
+  return console.log(`server is listening on ${process.env.PORT}`);
 });
