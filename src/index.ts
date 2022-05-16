@@ -1,6 +1,6 @@
 import app from './app';
 const { dbConnection } = require('./database/config');
-
+require('dotenv').config();
 dbConnection();
 
 var port = process.env.PORT || 3000;
