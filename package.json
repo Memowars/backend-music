@@ -4,8 +4,7 @@
   "description": "final project",
   "main": "dist/index.js",
   "scripts": {
-    "start": "node ../dist/index.js",
-    "start:dev":"nodemon index.ts",    
+    "start": "nodemon --watch src -e ts,ejs --exec",
     "dev": "nodemon src/index.ts",
     "tsc": "tsc"
   },
