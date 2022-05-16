@@ -1,4 +1,5 @@
-import app from './app';
+import app from '../src/app';
+
 const { dbConnection } = require('./database/config');
 
 dbConnection();
