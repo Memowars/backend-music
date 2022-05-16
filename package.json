@@ -2,7 +2,7 @@
   "name": "backend-music",
   "version": "1.0.0",
   "description": "final project",
-  "main": "build/index.js",
+  "main": "index.js",
   "scripts": {
     "start": "node build/index.js",
     "dev": "nodemon src/index.ts",
