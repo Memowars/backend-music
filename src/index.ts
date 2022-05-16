@@ -5,6 +5,6 @@ dbConnection();
 
 var port = process.env.PORT || 3000;
 
-app.listen(port, () => {
-  return console.log(`server is listening on ${process.env.PORT}`);
+app.listen(port, function () {
+  console.log('App is running on port ' + port);
 });
