@@ -11,7 +11,7 @@ export const AuthRoute = (app: Application) => {
     const login = await loginUser({ email, password });
 
     if (!login.ok) {
-      return res.status(400).json(login);
+      return res.status(400).json({ ok: false });
     }
     if (login.ok) {
       return res.status(200).json(login);

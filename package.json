@@ -4,9 +4,9 @@
   "description": "final project",
   "main": "dist/index.js",
   "scripts": {
-    "start": "tsc && node dist/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon src/index.ts"
+    "start": "nodemon --watch src -e ts,ejs --exec",
+    "dev": "nodemon src/index.ts",
+    "tsc": "tsc"
   },
   "repository": {
     "type": "git",
@@ -20,7 +20,6 @@
   "homepage": "https://github.com/Memowars/backend-music#readme",
   "dependencies": {
     "@types/bcryptjs": "^2.4.2",
-    "@types/mongodb": "^4.0.7",
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "dotenv": "^16.0.0",
